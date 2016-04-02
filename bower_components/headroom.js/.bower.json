@@ -1,0 +1,41 @@
+{
+  "name": "headroom.js",
+  "main": [
+    "dist/headroom.js",
+    "dist/jQuery.headroom.js",
+    "dist/angular.headroom.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "spec",
+    "Gruntfile.js",
+    "src",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "http://wicky.nillia.ms/headroom.js/",
+  "authors": [
+    "WickyNilliams"
+  ],
+  "description": "Hide your header until you need it",
+  "keywords": [
+    "header",
+    "js",
+    "scroll"
+  ],
+  "license": "MIT",
+  "version": "0.8.0",
+  "_release": "0.8.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.8.0",
+    "commit": "0f709ba9b366dcee48a9b1dc59fdb55070427086"
+  },
+  "_source": "https://github.com/WickyNilliams/headroom.js.git",
+  "_target": "^0.8.0",
+  "_originalSource": "headroom.js",
+  "_direct": true
+}

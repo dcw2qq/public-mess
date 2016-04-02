@@ -1,0 +1,349 @@
+
+
+///Header vars
+$mobileHeaderHeight: 4rem;
+$headerHeight: 4rem;
+$transDur: 0.4s;
+$translatePX:96;
+
+
+
+/////Header Accesibilty and functions
+
+#content {
+    //padding:$s-space;
+    padding-top:$mobileHeaderHeight;
+
+    @include medium{
+        //padding:$s-space*4;
+        padding-bottom:$s-space;
+        padding-top:$headerHeight;
+    }
+}
+
+#skip {
+
+    background: rgba(#fff,0.95);
+    display: block;
+    height: $mobileHeaderHeight;
+    line-height: $mobileHeaderHeight;
+    position: fixed;
+    right: 100%;
+    text-align: center;
+    transition: transform $transDur;
+    width: 200px;
+    z-index: 1;
+
+    &:focus {
+        transform: translateX(100%);
+    }
+
+    @include medium {
+        height: $headerHeight;
+        line-height: $headerHeight;
+    }
+
+}
+
+.nav-bar {
+
+    background: rgba($white, 0.95);
+    border-bottom: 1px $black solid;
+    height: $mobileHeaderHeight;
+    position: fixed;
+    top: 0px;
+    transition: transform $transDur ease-out;
+    width: 100%;
+    z-index: z('header');
+
+    &.headroom--unpinned,
+    .demo-active & {
+
+        @include medium {
+            transform: translateY(-96px);
+        } 
+
+        .brand-logo { 
+            @include medium {
+            transition: transform $transDur ease-out;
+            transform: translateY(-50px);
+            } 
+        }
+
+    
+    //.nav-bar @include medium starts here
+    @include medium {
+          // height: $mobileHeaderHeight/2;
+        }     
+    }
+
+    .brand-logo {
+        z-index: z('header') + 2;
+        bottom: 0;
+        display: block;
+        display: block;
+        height: $mobileHeaderHeight;
+        left: 0rem;
+        overflow: hidden;
+        padding: 0.5rem;
+        position: absolute;
+        top: 9px;
+        width: 163px;
+        h1{margin:0;}
+        h1 span {color: #fff; position: absolute; top: -999em; overflow: hidden;}
+        img{
+            width:100%;
+            position:absolute;
+            left: -9999px;
+            transition: opacity .2s ease-out; 
+            opacity:0;
+            @include medium {
+                    opacity: 1;
+                    left:5px;
+                    top:6px;
+                }
+            &.nav-on{
+                @include medium {display: none;}
+
+
+            }
+            &.show{
+                opacity:1;               
+                top: 6px;
+                left: 5px;
+
+
+            }
+
+        }
+
+        
+        @include medium {
+            padding: 0rem;
+            margin: 1.5rem;
+            top:-20px;
+            transition: transform $transDur ease-out;
+            
+        }
+
+        @include large {
+            left: 1rem;
+        }
+
+        @include wide {
+            left: 1.5rem;
+        }
+
+    }
+
+    .nav-toggle {
+
+        background-color: transparent;
+        border-radius: 50%;
+        border: 0px;
+        display: inline-block;
+        line-height: 3rem;
+        overflow: hidden;
+        padding: 0rem;
+        position: absolute;
+        right: 0.5rem;
+        top: 1rem;
+        transition: background-color ($transDur / 2) ease 0s;
+        z-index: 1;
+
+        &:focus,
+        &:hover {
+            //background: $light-blue;
+            color: $blue;
+            outline: 0;
+            text-decoration: none;
+        }
+
+  
+        span {color:$red; @extend %visuallyHidden;}
+
+        [class^="oui-icon-"]:before {
+            border-radius: 50%;
+            display: block;
+            height: 100%;
+            width: 3rem;
+            text-align: center;
+            line-height: 3rem;
+        }
+
+       
+        &[aria-pressed] {
+
+            color: #fff;
+
+            &:active, 
+            &:focus,
+            &:hover { 
+                color: $white;
+                outline: 0;
+            }
+
+        }            
+
+        @include large {
+            display: none;
+        }
+
+    }
+
+    .page-nav {
+
+        position: fixed;
+        right: auto;
+        width: 100%;
+        z-index: z('header') + 1;
+
+        &_list {
+
+            background: rgba($black,0.98);
+            box-shadow: 0px 0px 12px $black;
+            height: auto;                 
+            left: 100%;
+            margin: 0;
+            opacity: 0;
+            padding: $mobileHeaderHeight 0 0 0;
+            position: absolute;
+            transition: left 0s ease 1.2s,
+                        opacity 0.6s ease 0.6s;
+            width: 100%;
+            @include medium{
+                
+            }
+
+            li {
+
+                display: block;
+                min-height: $mobileHeaderHeight;
+                position: relative;
+                width: 100%;
+
+                a {
+
+                    border-top: 1px solid mix(#fff, $white, 20%);
+                    color: #fff;
+                    display: block;
+                    height: 100%;
+                    left: 100%;
+                    line-height: $mobileHeaderHeight;
+                    //padding: .75rem 0 1rem 0;
+                    position: absolute;
+                    text-align: center;
+                    transition: box-shadow 0.2s ease-in;
+                    transition: transform 500ms cubic-bezier(0.16, 0.86, 0.33, 0.97);
+                    width: 100%;
+                    
+                        
+                    
+
+                    &:focus,
+                    &:hover {
+                        background: mix(#fff, $black, 15%);
+                        outline: 0;
+                        text-decoration: none;
+                    }
+
+                }
+
+                // cascading slide-in effect
+                @for $i from 1 through 3 {
+                  &:nth-of-type(#{$i}n) a { transition-delay: $i * 0.1s + 0.1s; }
+                }
+
+            }
+
+        }
+
+        [aria-pressed] + .page-nav_list {
+
+            left: 0;
+            opacity: 1;
+            transition: left 0s ease 0s,
+                        opacity 0.6s ease 0s;
+
+            li a {
+                transform: translateX(-100%);
+            }
+
+        }
+        @include medium {
+            width:300px;
+            right:0;
+            &_list {
+                li{
+                    width:100%;
+                }
+                li a {
+                    padding:0;
+                }
+            }
+        }  
+  
+        @include large {
+            right: 0.5rem;
+            width:100%;
+            &_list {
+                display: block;
+                left: auto;
+                opacity: 1;
+                padding: 0;
+                right: 0;
+                top: -15px;
+                width: auto;
+                background: transparent;
+                box-shadow: 0 0 0 transparent;
+
+                li {
+                    list-style-type: none;
+                    height: $headerHeight;
+                    display: inline-block;
+                    width: auto;
+                }
+
+                li a {
+                    background: transparent;
+                    border-top: 0px;
+                    color: $blue;
+                    display: inline-block;                      
+                    font-size: 16px; 
+                    left: 0;                      
+                    line-height: 3rem;
+                    padding: 1em 1.5em 0 1.5em;
+                    position: static;                     
+                    text-align: center;
+                    transition: box-shadow 1.2s ease;
+                    transition-delay: 0s !important;                   
+                    
+                    &:active,
+                    &:focus,
+                    &:hover {
+
+                        background-color: transparent;
+                        text-decoration: none;
+                        box-shadow: inset 0 -10px 0px $blue;
+
+                    }
+
+                }
+
+            } 
+        }
+
+        @include large {
+            right: 1rem;
+        }
+        @include wide {
+            right: 1.5rem;
+        }
+        
+    }
+    
+    @include medium {
+        height: $headerHeight;
+    }
+
+}    

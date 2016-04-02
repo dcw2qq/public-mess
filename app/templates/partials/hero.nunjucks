@@ -1,0 +1,78 @@
+<section class="hero">
+
+    <div class="primary-content">
+        <span role="presentation" class="test">
+            <p class="hero-headline">Garment Protection For The Modern Professional</p>
+            
+            {% include 'partials/buy-button.nunjucks' %}
+            
+            <ul class="social">
+                <li>
+                    <a title="Facebook"href="#">
+                        <span>
+                            <i class="si-circle si-facebook"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a title="Twitter"href="#">
+                        <span>
+                            <i class="si-circle si-twitter"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a title="Linkedin"href="#">
+                        <span>
+                            <i class="si-circle si-linkedin"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a title="Pinterest" href="">
+                        <span>
+                            <i class="si-circle si-pinterest"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="clearfix"></div> 
+
+            <a href="#" class="start">
+                <i class="material-icons">&#xE313;</i>
+                <span class="hide-from-view">Learn More!</span>
+            </a>
+            
+
+        </span>
+        
+
+    </div><!--/.primary-content-->
+
+
+
+<!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide background-img_hero-1">
+                
+            </div>
+            <div class="swiper-slide background-img_hero-2">
+                
+            </div>
+            
+            
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+<!-- Swiper -->
+
+    
+
+    
+
+</section>

@@ -1,0 +1,52 @@
+// Mixins simply to store CSS rules
+  @mixin rule--tiny {
+    font-size: $fontTiny;
+    font-weight: 400;
+    line-height: ($fontSmall);
+    margin: ($fontTiny / 2) 0;
+  }
+
+  @mixin rule--small {
+    font-size: $fontSmall;
+    font-weight: 400;
+    line-height: $fontBase*1.25;
+    //margin: ($fontSmall / 2) 0;
+  }
+
+  @mixin rule--base {
+    font-size: $fontBase;
+    font-weight: 400;
+    line-height: $fontBase*1.75;
+  }
+
+  @mixin rule--medium {
+    font-size: $fontMedium;
+    font-weight: 400;
+    line-height: $fontBase*1.25;
+  }
+
+  @mixin rule--large {
+    font-size: $fontLarge;
+    font-weight: 100;
+    line-height:  $fontBase*2.75;
+  }
+
+  @mixin rule--xlarge {
+    font-size: $fontXLarge;
+    font-weight: 100;
+    line-height: line-height($fontXLarge);
+  }
+
+  @mixin rule--xxlarge {
+    font-size: $fontXXLarge;
+    font-weight: 100;
+    letter-spacing: -0.025em;
+    line-height:  $fontBase*4.75;
+  }
+
+  @mixin rule--huge {
+    font-size: $fontHuge;
+    font-weight: 100;
+    letter-spacing: -0.0375em;
+    line-height: line-height($fontHuge);
+  }

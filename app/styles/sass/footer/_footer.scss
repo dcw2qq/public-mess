@@ -1,0 +1,31 @@
+footer{
+	background:$black;
+	color:$white;
+	padding:$s-space*2 $s-space $s-space $s-space;
+	
+	@include rule--tiny;
+
+
+	nav{
+		ul.footer-nav{
+			@include span(6 split);
+				li{ 		
+					display: block;
+					margin-bottom: $s-space;
+				}
+		}
+		ul.footer-nav.social{
+			padding-top: $s-space;
+			@include span(10 split);
+				li{@include span(4 split);}
+		}
+
+	}// nav
+
+	.copyright{@include span(16 split); text-align:center; display:block; margin-top:$s-space;}
+	.si-circle {background-color:$white;color:$black;}
+	a{text-decoration: none; text-transform:uppercase;color:shade($white,0%);}
+	&:hover{color:shade($white,30%);}
+
+
+}// footer

@@ -1,0 +1,84 @@
+// utility
+@import 'sass/_vars';
+@import "../../node_modules/node-normalize-scss/normalize";
+@import "../../bower_components/Swiper/dist/css/swiper.min";
+@import "../../bower_components/susy/sass/susy";
+@import "../../bower_components/76d-social-icons/assets/css/main";
+@import "../../bower_components/76d-social-icons/assets/css/social-icons";
+@import 'sass/_utils';
+
+.hide{display:none;}
+
+
+//more normilzing
+*{  margin:0;padding:0;
+-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;}
+html, body {
+        position: relative;
+        height: 100%;
+    }
+ul{ list-style:none;}
+
+body {
+    font-family:"Merriweather", Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background:$white;
+    
+}
+
+
+
+a {
+  color: $blue;
+  display:block;
+  text-decoration:none;
+  transition: color .2s ease-out;
+  &:hover{
+    color:tint($blue, 60%);
+  }
+}
+
+
+
+.max{width:100%;}
+.hide-from-view{
+  position:absolute;
+  left:-9999px;
+  display: block;
+}
+
+
+
+//components
+@import 'sass/components/_type',
+        'sass/header/_header',
+        'sass/components/_hero',
+        'sass/components/_info-graphic',
+        'sass/components/_product-showcase',
+        'sass/components/_sub-content',
+        'sass/components/_swipper',       
+        'sass/footer/_footer';
+
+button.btn{
+    width:100%;
+    outline: 0;
+    border:none;
+    padding: $s-space 0;
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    
+    @include rule--medium;
+    font-weight: 600;
+    @include button-bg($blue,$white);
+
+}
+@include type-setup($typeConfig,$typeConfig);

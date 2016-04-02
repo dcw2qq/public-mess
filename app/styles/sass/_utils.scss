@@ -1,0 +1,238 @@
+// utils
+@import '_vars';
+
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+
+///z-index mixin
+@function z($layer) {
+  // ... where the magic happens.
+  @if not map-has-key($z-layers, $layer) {
+    @warn "No layer found for `#{$layer}` in $z-layers map. Property omitted.";
+  }
+  @return map-get($z-layers, $layer);
+}
+
+
+// vendor import
+@function import-path($path,$file:'') {
+	@return "#{$path}#{file}";
+}
+
+
+
+
+// traverse maps
+@function map-deep-get($map, $keys...) {
+  $value: $map;
+  @each $key in $keys {
+    $value: map-get($value, $key);
+  }
+  @return $value;
+}
+
+// font-face mixin
+@mixin font-face($fontFamily, $filePath, $fontWeight, $fontStyle: normal) {
+  @font-face {
+    font-family: $fontFamily;
+      src: url('#{$filePath}.eot');
+      src: url('#{$filePath}.eot?#iefix') format('embedded-opentype'),
+           url('#{$filePath}.woff') format('woff'),
+           url('#{$filePath}.ttf') format('truetype'),
+           url('#{$filePath}.svg##{$fontFamily}') format('svg');
+    font-weight: $fontWeight;
+    font-style: $fontStyle;
+  }
+  // Chrome for Windows rendering fix: http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+      font-family: $fontFamily;
+        src: url('#{$filePath}.svg##{$fontFamily}') format('svg');
+    }
+  }
+}
+
+// type setup mixin
+@mixin type-setup($config,$typeConfig) {
+	$fonts: map-get($typeConfig,"fonts");
+	$family: map-get($typeConfig,"family");
+	$dir: map-get($typeConfig,"dir");
+	$pre: map-get($typeConfig,"prefix");
+	@each $font, $weight in $fonts {
+		$path: $dir + $pre + $font;
+		@include font-face($family,$path,$weight);
+	}
+}
+
+///button mixin
+@mixin button-bg($bg,$color) {
+  background: $bg;
+  color: $color;
+  &:hover {
+    background:tint($bg,10%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background:tint($bg,50%);
+  } 
+}
+
+
+
+// breakpoints
+@mixin media-query($media-query) {
+  //@if $media-query == tiny { @media only screen and (max-width: $tiny ) { @content; } }
+  @if $media-query == small { @media only screen and (max-width: $medium - 1) { @content; } }
+  @if $media-query == medium { @media only screen and (min-width: $medium) { @content; } }
+  @if $media-query == medium-only { @media only screen and (min-width: $medium) and (max-width: $wide - 1) { @content; } }
+  @if $media-query == large { @media only screen and (min-width: $large) { @content; } }
+  @if $media-query == wide { @media only screen and (min-width: $wide) { @content; } }
+  @if $media-query == huge { @media only screen and (min-width: $huge) { @content; } }
+}
+
+@mixin small-only { @include media-query(small) { @content }; }
+@mixin medium { @include media-query(medium) { @content }; }
+@mixin medium-only { @include media-query(medium-only) { @content }; }
+@mixin large { @include media-query(large) { @content }; }
+@mixin wide { @include media-query(wide) { @content }; }
+@mixin huge { @include media-query(huge) { @content }; }
+
+@function line-height($typeSize, $scale: $rhythm) {
+  @return ceil($typeSize / $scale) * $scale;
+}
+
+@function spacer($size) {
+  // $leading: ( (line-height($size) - $size ) / 2);
+  // $leading: line-height($size) - $size;
+  // $leading: $size;
+  @return ( line-height($size) - $size ) / 2;
+}
+.clearfix{
+    content: "";
+    display: table;
+    clear: both;
+  }
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+%visuallyHidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+@mixin transition ($time){
+   -webkit-transition: all $time;
+     -moz-transition: all $time;
+       -o-transition: all $time;
+          transition: all $time;
+
+}
+
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+@mixin animate($name, $duration, $iteration, $direction, $delay) {
+  -webkit-animation-duration: $duration;
+     -moz-animation-duration: $duration;
+       -o-animation-duration: $duration;
+          animation-duration: $duration;
+  -webkit-animation-iteration-count: $iteration;
+     -moz-animation-iteration-count: $iteration;
+       -o-animation-iteration-count: $iteration;
+          animation-iteration-count: $iteration;
+  -webkit-animation-name: $name;
+     -moz-animation-name: $name;
+       -o-animation-name: $name;
+          animation-name: $name;
+  -webkit-animation-direction: $direction;
+     -moz-animation-direction: $direction;
+       -o-animation-direction: $direction;
+          animation-direction: $direction;
+  -webkit-animation-delay: $delay;
+     -moz-animation-delay: $delay;
+       -o-animation-delay: $delay;
+          animation-delay: $delay;
+}
+
+
+
+
+
+/*********************************
+HOW TO USE THE DOUBLE BORDER MIXIN
+This creates a slightly recessed border. 
+You pick the side of the element to style and the color of the border and shadow.
+$trbl: trbl is the common mneumonic for top, right, bottom, left. Use it to select which border you want.
+$shadow: Use 1 for a bottom box-shadow, -1 for a top box-shadow.
+$border_color: use #ddd for a bottom border, #fff for a top border
+$shadow_color: use #fff for a bottom shadow, #ddd for a top shadow 
+Example for a top treatment:
+@include double_border (top, -1, #fff, #ddd);
+*********************************/
+
+@mixin double_border($trbl, $shadow, $border_color, $shadow_color) {
+    border-#{$trbl}: #{$border_color} 1px solid;
+    box-shadow: 0px #{$shadow}px 0px 0px #{$shadow_color};
+}
+
+
+
+
+/////gradient
+
+@mixin gradient($colorMain, $posA, $colorB, $posB) {
+  background: $colorMain; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($colorMain $posA, $colorB $posB); /* Safari 5.1-6.0 */
+  background: -o-linear-gradient($colorMain $posA, $colorB $posB); /* For Opera 11.6-12.0 */
+  background: -moz-linear-gradient($colorMain $posA, $colorB $posB); /* For Firefox 3.6-15 */
+  background: linear-gradient($colorMain $posA, $colorB $posB); /* Standard syntax */
+}

@@ -1,0 +1,30 @@
+<!-- index.nunjucks -->
+{% extends "layout.nunjucks" %}
+
+
+{% block content %}
+
+
+
+  {% include 'partials/header.nunjucks' %}
+
+  
+
+  <main id="content" class="content">
+    {% include 'partials/hero.nunjucks' %}
+    {% include 'partials/product-showcase.nunjucks' %}  	
+  	{% include 'partials/sub-content.nunjucks' %}
+  	
+  	
+	  
+  </main>
+
+  {% include 'partials/footer.nunjucks' %}
+
+
+
+
+
+
+
+{% endblock %}

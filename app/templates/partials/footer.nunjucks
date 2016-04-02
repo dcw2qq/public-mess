@@ -1,0 +1,46 @@
+<footer>
+	<nav>
+		<ul class="footer-nav">
+				<li><a href="">Terms & Conditions</a></li>
+				<li><a href="">Privacy Policy</a></li>
+				<li><a href="">(888) 1234 4567</a></li>
+				<li><a href="">support@bizibibs.com</a></li>
+		</ul> 
+		<ul class="footer-nav social">
+				<li>
+					<a title="Facebook"href="#">
+						<span>
+							<i class="si-circle si-facebook"></i>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a title="Twitter"href="#">
+						<span>
+							<i class="si-circle si-twitter"></i>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a title="Linkedin"href="#">
+						<span>
+							<i class="si-circle si-linkedin"></i>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a title="Pinterest" href="">
+						<span>
+							<i class="si-circle si-pinterest"></i>
+						</span>
+					</a>
+				</li>
+		</ul> 
+	</nav>
+	<div class="clearfix"></div>
+
+
+	<p class="copyright">© 2016 BiziBibs.com</p>
+	<div class="clearfix"></div>
+
+</footer>

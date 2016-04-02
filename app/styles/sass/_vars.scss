@@ -1,0 +1,120 @@
+// vars
+
+
+
+// paths
+$bowerDir:"../../bower_components/";
+$npmDir:"../../node_modules/";
+$fontDir:"../../fonts/";
+
+$susy: (
+
+  columns:16,
+  gutters:0.25,
+  math:fluid,
+   );
+
+
+
+ $z-layers: (
+  "send-to-top":   	  9001,
+  "header":		   	  9000,
+  "product":           8050,
+  "slider":           8000,
+  "sub-content":      7000,
+  "default":          1,
+  "below":            -1,
+  "send-to-bottom":   -9000
+); 
+
+
+$title_name: 'title' !default;
+
+
+//Brand teal
+/*House Colors*/
+$blue:#192956;
+$red:#d02434;
+$white:#fefefe;
+$black:#231f20;
+$gray:#4e4346;
+
+//// background colors
+$dark-gray:#858585;
+$mid-gray:#CFCFCF;
+$light-gray:#DFE0E1;
+$lightest-gray: #E9E9E9;
+
+
+///whites
+$bright-white:#ffffff;
+$mute-white:#F6F6F6;
+
+//other colors
+$green:#009B7C ;
+$yellow:#DDAB1B;
+
+
+$readable_grey      : #444444;
+$light_readable_grey: #808080;
+$link_blue          : #008BC1;
+$error_red          : #e30000;
+
+
+$fontBase: 16px !default;
+
+$fontTiny: $fontBase*.5 !default;
+$fontSmall: $fontBase*.75 !default; 
+$fontMedium: $fontBase*1.125 !default;
+$fontLarge: $fontBase*1.25 !default;
+$fontXLarge: $fontBase*1.5 !default;
+$fontXXLarge: $fontBase*1.75 !default;
+$fontHuge: $fontBase*2 !default;
+
+
+// typeface
+$typeConfig: (
+	dir: $fontDir,
+	family: "Merriweather",
+	prefix: "Merriweather-",	
+	fonts: (
+		Light:300,		
+		Regular:400,
+		Bold:600,
+		Black:900
+		)
+	);
+
+
+
+$s-space:1em;
+
+
+
+// typography
+$base-font-size: 16px;
+$rhythm: 36px;
+$line-height: 1.5;
+
+// layout
+  
+//// Defining breakpoints
+$tiny: 400px !default;
+$medium: 600px !default;
+$large: 960px !default;
+$wide: 1000px !default;
+$huge: 1200px !default;
+
+$mediumContainer: 768px !default;
+$largeContainer: 960px !default;
+$wideContainer: 1280px !default;
+$hugeContainer: 1440px !default;
+
+
+
+
+$mediumGrid: layout($mediumContainer 8);
+$largeGrid: layout($largeContainer 16);
+
+
+

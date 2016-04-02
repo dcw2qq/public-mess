@@ -1,0 +1,23 @@
+<header class="nav-bar" role="banner">
+	<a id="skip" href="#content" onClick="javascript:document.getElementById('content').focus(); return false;">Skip to Main Content →
+	</a>
+	<a href="" class="brand-logo">
+		<h1>
+			<span>BiziBibs</span>
+			<img class="nav-off show" src="images/bb-main-logo.png"/>
+			<img class="nav-on" src="images/bb-main-logo-alt.png"/>
+		</h1>
+	</a>
+	<nav class="page-nav">
+		<button class="nav-toggle">
+                <i class="material-icons">&#xE5D2;</i>
+                <span class="nav-toggle_label">Open Menu</span>
+        </button>
+		<ul class="page-nav_list">
+			<li><a href="#">What are BiziBibs</a></li>
+			<li><a href="#">Product Showcase</a></li>
+			<li><a href="#">Purchase Now</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
+</header>

@@ -1,0 +1,59 @@
+section.hero{
+	position: relative;
+	.primary-content{
+		position: absolute;
+		width: 100%;
+		z-index: z('slider') + 1;
+
+		span[role="presentation"]{
+			display: block;
+			width: 80%;
+			margin:0 auto;
+			text-align: center;
+			min-height: 200px;
+			color:$white;
+			color:$red;
+
+			
+
+			p{
+				@include rule--large;
+				font-weight: 600;
+				line-height: 28px;
+				//color: $red;
+				//margin-top: 0rem;
+				font-size:18px;
+				@include medium{
+					@include rule--huge;
+					font-weight: 400;
+				}
+			}//p
+
+			ul{
+				display: block;
+				width: 193px;
+				margin:0 auto;
+				margin-top: $s-space;
+				li{
+					float:left;
+					margin: 0 .5rem;
+					a{
+						i{color:$blue; background:$white; }
+					}
+				}
+			}//ul
+
+			.start{
+				i{font-size:48px; color:$white;}
+			}
+			
+		}//span
+		div[data-embed_type]{ margin-left: 62px;
+			button{width:500px}
+		}
+			
+
+
+
+	}//.primary-content
+}//section.hero

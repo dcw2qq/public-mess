@@ -1,0 +1,19 @@
+<section class="product-showcase">
+
+	<div class="primary-content">
+		<span>
+			<img class="max" src="images/bb-product-blue.png">
+		</span>
+		<span>
+			<img class="max" src="images/bb-product-red.png">
+		</span>
+		<span>
+			<img class="max" src="images/bb-product-white.png">
+		</span>
+
+		<div class="clearfix"></div>
+		<button class="btn buy">Buy Now</button>
+		<div class="clearfix"></div>
+	</div>
+
+</section>
